@@ -46,7 +46,7 @@ function ProductPage() {
           <div className="mt-8">
             <div className="text-xs font-medium uppercase tracking-widest text-foreground">Key features</div>
             <ul className="mt-3 space-y-2">
-              {product.features.map((f) => (
+              {product.features.map((f: string) => (
                 <li key={f} className="flex items-center gap-2 text-sm"><Check className="size-4 text-brand" /> {f}</li>
               ))}
             </ul>
@@ -55,7 +55,7 @@ function ProductPage() {
           <div className="mt-8">
             <div className="text-xs font-medium uppercase tracking-widest text-foreground">Best for</div>
             <div className="mt-3 flex flex-wrap gap-2">
-              {product.bestFor.map((b) => (
+              {product.bestFor.map((b: string) => (
                 <span key={b} className="rounded-full border border-border px-3 py-1 text-xs">{b}</span>
               ))}
             </div>
