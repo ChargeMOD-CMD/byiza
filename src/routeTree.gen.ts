@@ -9,38 +9,194 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SeatingRouteImport } from './routes/seating'
+import { Route as ManufacturingRouteImport } from './routes/manufacturing'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as ChairTechnologyRouteImport } from './routes/chair-technology'
+import { Route as ChairPartsRouteImport } from './routes/chair-parts'
+import { Route as BulkOrdersRouteImport } from './routes/bulk-orders'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as SeatingSlugRouteImport } from './routes/seating.$slug'
 
+const SeatingRoute = SeatingRouteImport.update({
+  id: '/seating',
+  path: '/seating',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ManufacturingRoute = ManufacturingRouteImport.update({
+  id: '/manufacturing',
+  path: '/manufacturing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ChairTechnologyRoute = ChairTechnologyRouteImport.update({
+  id: '/chair-technology',
+  path: '/chair-technology',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ChairPartsRoute = ChairPartsRouteImport.update({
+  id: '/chair-parts',
+  path: '/chair-parts',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BulkOrdersRoute = BulkOrdersRouteImport.update({
+  id: '/bulk-orders',
+  path: '/bulk-orders',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SeatingSlugRoute = SeatingSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => SeatingRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/bulk-orders': typeof BulkOrdersRoute
+  '/chair-parts': typeof ChairPartsRoute
+  '/chair-technology': typeof ChairTechnologyRoute
+  '/contact': typeof ContactRoute
+  '/manufacturing': typeof ManufacturingRoute
+  '/seating': typeof SeatingRouteWithChildren
+  '/seating/$slug': typeof SeatingSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/bulk-orders': typeof BulkOrdersRoute
+  '/chair-parts': typeof ChairPartsRoute
+  '/chair-technology': typeof ChairTechnologyRoute
+  '/contact': typeof ContactRoute
+  '/manufacturing': typeof ManufacturingRoute
+  '/seating': typeof SeatingRouteWithChildren
+  '/seating/$slug': typeof SeatingSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/bulk-orders': typeof BulkOrdersRoute
+  '/chair-parts': typeof ChairPartsRoute
+  '/chair-technology': typeof ChairTechnologyRoute
+  '/contact': typeof ContactRoute
+  '/manufacturing': typeof ManufacturingRoute
+  '/seating': typeof SeatingRouteWithChildren
+  '/seating/$slug': typeof SeatingSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/bulk-orders'
+    | '/chair-parts'
+    | '/chair-technology'
+    | '/contact'
+    | '/manufacturing'
+    | '/seating'
+    | '/seating/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/bulk-orders'
+    | '/chair-parts'
+    | '/chair-technology'
+    | '/contact'
+    | '/manufacturing'
+    | '/seating'
+    | '/seating/$slug'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/bulk-orders'
+    | '/chair-parts'
+    | '/chair-technology'
+    | '/contact'
+    | '/manufacturing'
+    | '/seating'
+    | '/seating/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  BulkOrdersRoute: typeof BulkOrdersRoute
+  ChairPartsRoute: typeof ChairPartsRoute
+  ChairTechnologyRoute: typeof ChairTechnologyRoute
+  ContactRoute: typeof ContactRoute
+  ManufacturingRoute: typeof ManufacturingRoute
+  SeatingRoute: typeof SeatingRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/seating': {
+      id: '/seating'
+      path: '/seating'
+      fullPath: '/seating'
+      preLoaderRoute: typeof SeatingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/manufacturing': {
+      id: '/manufacturing'
+      path: '/manufacturing'
+      fullPath: '/manufacturing'
+      preLoaderRoute: typeof ManufacturingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/chair-technology': {
+      id: '/chair-technology'
+      path: '/chair-technology'
+      fullPath: '/chair-technology'
+      preLoaderRoute: typeof ChairTechnologyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/chair-parts': {
+      id: '/chair-parts'
+      path: '/chair-parts'
+      fullPath: '/chair-parts'
+      preLoaderRoute: typeof ChairPartsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/bulk-orders': {
+      id: '/bulk-orders'
+      path: '/bulk-orders'
+      fullPath: '/bulk-orders'
+      preLoaderRoute: typeof BulkOrdersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,22 +204,37 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/seating/$slug': {
+      id: '/seating/$slug'
+      path: '/$slug'
+      fullPath: '/seating/$slug'
+      preLoaderRoute: typeof SeatingSlugRouteImport
+      parentRoute: typeof SeatingRoute
+    }
   }
 }
 
+interface SeatingRouteChildren {
+  SeatingSlugRoute: typeof SeatingSlugRoute
+}
+
+const SeatingRouteChildren: SeatingRouteChildren = {
+  SeatingSlugRoute: SeatingSlugRoute,
+}
+
+const SeatingRouteWithChildren =
+  SeatingRoute._addFileChildren(SeatingRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  BulkOrdersRoute: BulkOrdersRoute,
+  ChairPartsRoute: ChairPartsRoute,
+  ChairTechnologyRoute: ChairTechnologyRoute,
+  ContactRoute: ContactRoute,
+  ManufacturingRoute: ManufacturingRoute,
+  SeatingRoute: SeatingRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
