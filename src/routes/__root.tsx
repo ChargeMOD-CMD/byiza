@@ -15,6 +15,7 @@ import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { EnquiryProvider } from "@/components/site/EnquiryProvider";
 import { WhatsAppFab } from "@/components/site/WhatsAppFab";
+import { CompareProvider } from "@/components/site/CompareProvider";
 
 function NotFoundComponent() {
   return (
@@ -130,14 +131,16 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <EnquiryProvider>
-        <div className="flex min-h-dvh flex-col bg-background text-foreground">
-          <SiteHeader />
-          <main className="flex-1">
-            <Outlet />
-          </main>
-          <SiteFooter />
-          <WhatsAppFab />
-        </div>
+        <CompareProvider>
+          <div className="flex min-h-dvh flex-col bg-background text-foreground">
+            <SiteHeader />
+            <main className="flex-1">
+              <Outlet />
+            </main>
+            <SiteFooter />
+            <WhatsAppFab />
+          </div>
+        </CompareProvider>
       </EnquiryProvider>
     </QueryClientProvider>
   );
