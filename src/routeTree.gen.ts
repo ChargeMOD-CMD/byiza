@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as SeatingRouteImport } from './routes/seating'
 import { Route as ManufacturingRouteImport } from './routes/manufacturing'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CompareRouteImport } from './routes/compare'
 import { Route as ChairTechnologyRouteImport } from './routes/chair-technology'
 import { Route as ChairPartsRouteImport } from './routes/chair-parts'
 import { Route as BulkOrdersRouteImport } from './routes/bulk-orders'
@@ -32,6 +33,11 @@ const ManufacturingRoute = ManufacturingRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CompareRoute = CompareRouteImport.update({
+  id: '/compare',
+  path: '/compare',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ChairTechnologyRoute = ChairTechnologyRouteImport.update({
@@ -71,6 +77,7 @@ export interface FileRoutesByFullPath {
   '/bulk-orders': typeof BulkOrdersRoute
   '/chair-parts': typeof ChairPartsRoute
   '/chair-technology': typeof ChairTechnologyRoute
+  '/compare': typeof CompareRoute
   '/contact': typeof ContactRoute
   '/manufacturing': typeof ManufacturingRoute
   '/seating': typeof SeatingRouteWithChildren
@@ -82,6 +89,7 @@ export interface FileRoutesByTo {
   '/bulk-orders': typeof BulkOrdersRoute
   '/chair-parts': typeof ChairPartsRoute
   '/chair-technology': typeof ChairTechnologyRoute
+  '/compare': typeof CompareRoute
   '/contact': typeof ContactRoute
   '/manufacturing': typeof ManufacturingRoute
   '/seating': typeof SeatingRouteWithChildren
@@ -94,6 +102,7 @@ export interface FileRoutesById {
   '/bulk-orders': typeof BulkOrdersRoute
   '/chair-parts': typeof ChairPartsRoute
   '/chair-technology': typeof ChairTechnologyRoute
+  '/compare': typeof CompareRoute
   '/contact': typeof ContactRoute
   '/manufacturing': typeof ManufacturingRoute
   '/seating': typeof SeatingRouteWithChildren
@@ -107,6 +116,7 @@ export interface FileRouteTypes {
     | '/bulk-orders'
     | '/chair-parts'
     | '/chair-technology'
+    | '/compare'
     | '/contact'
     | '/manufacturing'
     | '/seating'
@@ -118,6 +128,7 @@ export interface FileRouteTypes {
     | '/bulk-orders'
     | '/chair-parts'
     | '/chair-technology'
+    | '/compare'
     | '/contact'
     | '/manufacturing'
     | '/seating'
@@ -129,6 +140,7 @@ export interface FileRouteTypes {
     | '/bulk-orders'
     | '/chair-parts'
     | '/chair-technology'
+    | '/compare'
     | '/contact'
     | '/manufacturing'
     | '/seating'
@@ -141,6 +153,7 @@ export interface RootRouteChildren {
   BulkOrdersRoute: typeof BulkOrdersRoute
   ChairPartsRoute: typeof ChairPartsRoute
   ChairTechnologyRoute: typeof ChairTechnologyRoute
+  CompareRoute: typeof CompareRoute
   ContactRoute: typeof ContactRoute
   ManufacturingRoute: typeof ManufacturingRoute
   SeatingRoute: typeof SeatingRouteWithChildren
@@ -167,6 +180,13 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/compare': {
+      id: '/compare'
+      path: '/compare'
+      fullPath: '/compare'
+      preLoaderRoute: typeof CompareRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/chair-technology': {
@@ -231,6 +251,7 @@ const rootRouteChildren: RootRouteChildren = {
   BulkOrdersRoute: BulkOrdersRoute,
   ChairPartsRoute: ChairPartsRoute,
   ChairTechnologyRoute: ChairTechnologyRoute,
+  CompareRoute: CompareRoute,
   ContactRoute: ContactRoute,
   ManufacturingRoute: ManufacturingRoute,
   SeatingRoute: SeatingRouteWithChildren,
