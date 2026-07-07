@@ -10,6 +10,7 @@ const nav = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
   { to: "/seating", label: "Seating Collection" },
+  { to: "/compare", label: "Compare" },
   { to: "/chair-technology", label: "Chair Technology" },
   { to: "/chair-parts", label: "Parts" },
   { to: "/manufacturing", label: "Manufacturing" },
