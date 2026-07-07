@@ -99,8 +99,11 @@
 .dark {
   --background: oklch(0.15 0.008 250);
   --foreground: oklch(0.96 0.005 80);
-  --ink: oklch(0.96 0.005 80);
-  --ivory: oklch(0.96 0.005 80);
+  /* ink/ivory stay absolute: ink = deep charcoal, ivory = warm near-white.
+     This keeps `bg-ink text-ivory` surfaces (footer, dark sections, primary
+     buttons) readable in both themes instead of collapsing to same tone. */
+  --ink: oklch(0.15 0.01 60);
+  --ivory: oklch(0.985 0.008 80);
   --metal: oklch(0.68 0.01 250);
   --card: oklch(0.19 0.01 250);
   --card-foreground: oklch(0.96 0.005 80);
