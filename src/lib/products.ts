@@ -13,6 +13,18 @@ export interface Product {
   image: string;
   features: string[];
   bestFor: string[];
+  specs: {
+    backType: string;
+    material: string;
+    mechanism: string;
+    armrests: string;
+    headrest: string;
+    lumbar: string;
+    base: string;
+    gasLift: string;
+    weightCapacity: string;
+    warranty: string;
+  };
 }
 
 export const products: Product[] = [
@@ -24,6 +36,18 @@ export const products: Product[] = [
     image: chairErgonomic,
     features: ["Breathable mesh back", "Adjustable lumbar", "3D armrests", "Synchro-tilt mechanism"],
     bestFor: ["Long working hours", "Home office", "Team workspace"],
+    specs: {
+      backType: "High-back mesh",
+      material: "Breathable mesh + moulded foam",
+      mechanism: "Synchro-tilt with tension",
+      armrests: "3D adjustable",
+      headrest: "Adjustable",
+      lumbar: "Adjustable",
+      base: "Nylon 5-star",
+      gasLift: "Class-4",
+      weightCapacity: "120 kg",
+      warranty: "3 years",
+    },
   },
   {
     slug: "byiza-executive-noir",
@@ -33,6 +57,18 @@ export const products: Product[] = [
     image: chairExecutive,
     features: ["Premium leatherette", "High-back support", "Contoured seat", "Class-4 gas lift"],
     bestFor: ["Executive cabin", "Director office", "Meeting room"],
+    specs: {
+      backType: "High-back cushioned",
+      material: "Premium leatherette",
+      mechanism: "Multi-tilt lock",
+      armrests: "Fixed padded",
+      headrest: "Integrated",
+      lumbar: "Contoured built-in",
+      base: "Polished aluminium",
+      gasLift: "Class-4",
+      weightCapacity: "130 kg",
+      warranty: "3 years",
+    },
   },
   {
     slug: "byiza-summit-highback",
@@ -42,6 +78,18 @@ export const products: Product[] = [
     image: chairHighback,
     features: ["Adjustable headrest", "Reinforced mesh", "Tilt lock", "Polished aluminium base"],
     bestFor: ["Executive", "Long hours", "Focused work"],
+    specs: {
+      backType: "High-back reinforced mesh",
+      material: "Reinforced mesh + foam",
+      mechanism: "Synchro-tilt with lock",
+      armrests: "2D adjustable",
+      headrest: "Adjustable",
+      lumbar: "Adjustable",
+      base: "Polished aluminium",
+      gasLift: "Class-4",
+      weightCapacity: "125 kg",
+      warranty: "3 years",
+    },
   },
   {
     slug: "byiza-taskflow",
@@ -51,6 +99,18 @@ export const products: Product[] = [
     image: chairStaff,
     features: ["Mesh back", "Height adjust", "PU castors", "Fixed / adjustable arms"],
     bestFor: ["Team desks", "Call centers", "IT floors"],
+    specs: {
+      backType: "Mid-back mesh",
+      material: "Mesh + fabric seat",
+      mechanism: "Knee-tilt",
+      armrests: "Fixed / optional adjustable",
+      headrest: "—",
+      lumbar: "Fixed contour",
+      base: "Nylon 5-star",
+      gasLift: "Class-3",
+      weightCapacity: "110 kg",
+      warranty: "2 years",
+    },
   },
   {
     slug: "byiza-guest-line",
@@ -60,6 +120,18 @@ export const products: Product[] = [
     image: chairVisitor,
     features: ["Chrome sled base", "Stackable", "Mesh back", "Durable frame"],
     bestFor: ["Reception", "Cabin visitor", "Waiting area"],
+    specs: {
+      backType: "Mid-back mesh",
+      material: "Mesh + fabric",
+      mechanism: "Fixed",
+      armrests: "Fixed",
+      headrest: "—",
+      lumbar: "Fixed contour",
+      base: "Chrome sled",
+      gasLift: "—",
+      weightCapacity: "110 kg",
+      warranty: "2 years",
+    },
   },
   {
     slug: "byiza-boardline",
@@ -69,6 +141,18 @@ export const products: Product[] = [
     image: chairConference,
     features: ["Cushioned seat", "Fixed arms", "Swivel base", "Tilt tension"],
     bestFor: ["Boardroom", "Training room", "Conference"],
+    specs: {
+      backType: "Mid-back cushioned",
+      material: "Leatherette + foam",
+      mechanism: "Tilt tension",
+      armrests: "Fixed padded",
+      headrest: "—",
+      lumbar: "Contoured built-in",
+      base: "Polished aluminium",
+      gasLift: "Class-3",
+      weightCapacity: "120 kg",
+      warranty: "3 years",
+    },
   },
 ];
 
