@@ -2,6 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, Check } from "lucide-react";
 import { products, BYIZA } from "@/lib/products";
 import { useEnquiry } from "@/components/site/EnquiryProvider";
+import { CompareToggle } from "@/components/site/CompareProvider";
 
 export const Route = createFileRoute("/seating/$slug")({
   loader: ({ params }) => {
@@ -64,6 +65,7 @@ function ProductPage() {
           <div className="mt-10 flex flex-wrap gap-3">
             <button onClick={() => open({ product: product.name })} className="h-12 rounded-full bg-brand px-6 text-sm font-semibold text-brand-foreground hover:brightness-110">Enquire now</button>
             <a href={waHref} target="_blank" rel="noopener" className="h-12 inline-flex items-center rounded-full border border-border px-6 text-sm font-semibold hover:bg-muted">WhatsApp enquiry</a>
+            <CompareToggle slug={product.slug} className="h-12 px-5 text-sm" />
             <button onClick={() => open({ product: product.name })} className="h-12 inline-flex items-center px-4 text-sm font-medium text-muted-foreground hover:text-foreground">Request price</button>
           </div>
         </div>
