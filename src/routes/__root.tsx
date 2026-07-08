@@ -16,6 +16,8 @@ import { SiteFooter } from "@/components/site/SiteFooter";
 import { EnquiryProvider } from "@/components/site/EnquiryProvider";
 import { WhatsAppFab } from "@/components/site/WhatsAppFab";
 import { CompareProvider } from "@/components/site/CompareProvider";
+import { AIChatbot } from "@/components/site/AIChatbot";
+import { ScrollToTop } from "@/components/site/ScrollToTop";
 
 function NotFoundComponent() {
   return (
@@ -139,6 +141,8 @@ function RootComponent() {
             </main>
             <SiteFooter />
             <WhatsAppFab />
+            <AIChatbot />
+            <ScrollToTop />
           </div>
         </CompareProvider>
       </EnquiryProvider>
