@@ -19,6 +19,7 @@ import { Route as BulkOrdersRouteImport } from './routes/bulk-orders'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as SeatingSlugRouteImport } from './routes/seating.$slug'
+import { Route as ApiChatRouteImport } from './routes/api/chat'
 
 const SeatingRoute = SeatingRouteImport.update({
   id: '/seating',
@@ -70,6 +71,11 @@ const SeatingSlugRoute = SeatingSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => SeatingRoute,
 } as any)
+const ApiChatRoute = ApiChatRouteImport.update({
+  id: '/api/chat',
+  path: '/api/chat',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -81,6 +87,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/manufacturing': typeof ManufacturingRoute
   '/seating': typeof SeatingRouteWithChildren
+  '/api/chat': typeof ApiChatRoute
   '/seating/$slug': typeof SeatingSlugRoute
 }
 export interface FileRoutesByTo {
@@ -93,6 +100,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/manufacturing': typeof ManufacturingRoute
   '/seating': typeof SeatingRouteWithChildren
+  '/api/chat': typeof ApiChatRoute
   '/seating/$slug': typeof SeatingSlugRoute
 }
 export interface FileRoutesById {
@@ -106,6 +114,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/manufacturing': typeof ManufacturingRoute
   '/seating': typeof SeatingRouteWithChildren
+  '/api/chat': typeof ApiChatRoute
   '/seating/$slug': typeof SeatingSlugRoute
 }
 export interface FileRouteTypes {
@@ -120,6 +129,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/manufacturing'
     | '/seating'
+    | '/api/chat'
     | '/seating/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -132,6 +142,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/manufacturing'
     | '/seating'
+    | '/api/chat'
     | '/seating/$slug'
   id:
     | '__root__'
@@ -144,6 +155,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/manufacturing'
     | '/seating'
+    | '/api/chat'
     | '/seating/$slug'
   fileRoutesById: FileRoutesById
 }
@@ -157,6 +169,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   ManufacturingRoute: typeof ManufacturingRoute
   SeatingRoute: typeof SeatingRouteWithChildren
+  ApiChatRoute: typeof ApiChatRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -231,6 +244,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SeatingSlugRouteImport
       parentRoute: typeof SeatingRoute
     }
+    '/api/chat': {
+      id: '/api/chat'
+      path: '/api/chat'
+      fullPath: '/api/chat'
+      preLoaderRoute: typeof ApiChatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -255,6 +275,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   ManufacturingRoute: ManufacturingRoute,
   SeatingRoute: SeatingRouteWithChildren,
+  ApiChatRoute: ApiChatRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
