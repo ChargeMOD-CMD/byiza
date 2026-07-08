@@ -18,6 +18,7 @@ import { WhatsAppFab } from "@/components/site/WhatsAppFab";
 import { CompareProvider } from "@/components/site/CompareProvider";
 import { AIChatbot } from "@/components/site/AIChatbot";
 import { ScrollToTop } from "@/components/site/ScrollToTop";
+import { WelcomeSplash } from "@/components/site/WelcomeSplash";
 
 function NotFoundComponent() {
   return (
@@ -143,6 +144,7 @@ function RootComponent() {
             <WhatsAppFab />
             <AIChatbot />
             <ScrollToTop />
+            <WelcomeSplash />
           </div>
         </CompareProvider>
       </EnquiryProvider>
